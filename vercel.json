@@ -6,6 +6,7 @@
     },
     "backend": {
       "entrypoint": "backend/app/main.py",
+      "runtime": "@vercel/python",
       "routePrefix": "/_/backend"
     }
   },
