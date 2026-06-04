@@ -5,8 +5,18 @@
       "framework": "vite"
     },
     "backend": {
-      "root": "backend",
+      "entrypoint": "backend/app/main.py",
       "routePrefix": "/_/backend"
     }
-  }
+  },
+  "rewrites": [
+    {
+      "source": "/detect/:path*",
+      "destination": "/_/backend/detect/:path*"
+    },
+    {
+      "source": "/api/:path*",
+      "destination": "/_/backend/api/:path*"
+    }
+  ]
 }
