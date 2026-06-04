@@ -1,41 +1,33 @@
 {
-  "experimentalServices": {
-    "frontend": {
-      "routePrefix": "/",
-      "framework": "vite"
+  "version": 2,
+  "builds": [
+    {
+      "src": "backend/app/main.py",
+      "use": "@vercel/python"
     },
-    "backend": {
-      "root": "backend",
-      "entrypoint": "app/main.py",
-      "builder": "@vercel/python",
-      "runtime": "@vercel/python",
-      "routePrefix": "/_/backend"
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
     }
-  },
-  "rewrites": [
+  ],
+  "routes": [
     {
-      "source": "/detect/:path*",
-      "destination": "/_/backend/detect/:path*"
+      "src": "/api/(.*)",
+      "dest": "backend/app/main.py"
     },
     {
-      "source": "/api/:path*",
-      "destination": "/_/backend/api/:path*"
+      "src": "/detect/(.*)",
+      "dest": "backend/app/main.py"
     },
     {
-      "source": "/events/:path*",
-      "destination": "/_/backend/events/:path*"
+      "handle": "filesystem"
     },
     {
-      "source": "/pos/:path*",
-      "destination": "/_/backend/pos/:path*"
-    },
-    {
-      "source": "/stores/:path*",
-      "destination": "/_/backend/stores/:path*"
-    },
-    {
-      "source": "/health",
-      "destination": "/_/backend/health"
+      "src": "/(.*)",
+      "dest": "/index.html"
     }
   ]
 }

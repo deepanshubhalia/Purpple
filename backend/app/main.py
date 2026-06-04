@@ -60,6 +60,11 @@ app.add_middleware(
 )
 
 
+@app.get("/")
+def home():
+    return {"message": "Backend running"}
+
+
 # ─── Middleware: Request Logging & Trace ID ─────────────────────────────────
 
 @app.middleware("http")
