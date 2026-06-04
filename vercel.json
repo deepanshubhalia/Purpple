@@ -5,7 +5,8 @@
       "framework": "vite"
     },
     "backend": {
-      "entrypoint": "backend/app/main.py",
+      "root": "backend",
+      "entrypoint": "app/main.py",
       "builder": "@vercel/python",
       "runtime": "@vercel/python",
       "routePrefix": "/_/backend"
@@ -19,6 +20,22 @@
     {
       "source": "/api/:path*",
       "destination": "/_/backend/api/:path*"
+    },
+    {
+      "source": "/events/:path*",
+      "destination": "/_/backend/events/:path*"
+    },
+    {
+      "source": "/pos/:path*",
+      "destination": "/_/backend/pos/:path*"
+    },
+    {
+      "source": "/stores/:path*",
+      "destination": "/_/backend/stores/:path*"
+    },
+    {
+      "source": "/health",
+      "destination": "/_/backend/health"
     }
   ]
 }
