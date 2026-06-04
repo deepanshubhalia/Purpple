@@ -4,7 +4,7 @@
 
 ---
 
-## 📋 Table of Contents
+##  Table of Contents
 
 - [Quick Start](#quick-start)
 - [System Architecture](#system-architecture)
@@ -19,7 +19,7 @@
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Prerequisites
 
@@ -67,7 +67,7 @@ pytest --cov=app --cov-report=term-missing
 
 ---
 
-## 🏗️ System Architecture
+##  System Architecture
 
 ```
 ┌─────────────┐    ┌──────────────┐    ┌─────────────┐    ┌──────────────┐
@@ -85,7 +85,7 @@ See `DESIGN.md` for full architecture diagrams and `CHOICES.md` for technical tr
 
 ---
 
-## 🔍 Part A: Detection Pipeline
+##  Part A: Detection Pipeline
 
 ### `detect.py` — The Vision Engine
 
@@ -124,7 +124,7 @@ python backend/app/detect.py --input /path/to/clips --output events.jsonl
 
 ---
 
-## 🧠 Part B: Intelligence API
+##  Part B: Intelligence API
 
 ### POST `/events/ingest`
 Batch ingest up to 500 events. Fully idempotent via `event_id`.
@@ -163,7 +163,7 @@ Vital signs per store with STALE_FEED warnings (lag > 10 min).
 
 ---
 
-## 🛡️ Part C: Production Readiness
+##  Part C: Production Readiness
 
 | Feature | Implementation |
 |---------|---------------|
@@ -175,14 +175,14 @@ Vital signs per store with STALE_FEED warnings (lag > 10 min).
 
 ---
 
-## 🤖 Part D: AI Engineering
+##  Part D: AI Engineering
 
 - **`DESIGN.md`** — Architecture overview with AI-assisted decisions log
 - **`CHOICES.md`** — Deep-dive trade-off analysis for 3 key decisions
 
 ---
 
-## 📺 Part E: Live Dashboard
+##  Part E: Live Dashboard
 
 The React dashboard at `http://localhost:5173` provides:
 - Real-time KPI cards (visitors, conversion, queue depth)
@@ -195,7 +195,7 @@ The React dashboard at `http://localhost:5173` provides:
 
 ---
 
-## ⚠️ Edge Cases Handled
+##  Edge Cases Handled
 
 ### Group Entries
 Simultaneous 2-4 person entries are distinguished via bounding box clustering. Each person gets a unique `visitor_id` and `event_type: "ENTRY"`. `group_size` field tracks the cluster.
@@ -214,7 +214,7 @@ Queue depth tracked via spatial clustering. Abandonment detected when a tracked 
 
 ---
 
-## 🔌 API Endpoints
+##  API Endpoints
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
@@ -227,7 +227,7 @@ Queue depth tracked via spatial clustering. Abandonment detected when a tracked 
 
 ---
 
-## 🧪 Testing
+##  Testing
 
 ```bash
 cd backend
@@ -238,7 +238,7 @@ Each test file includes an AI comment block documenting the prompt used and manu
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 apex-retail/
